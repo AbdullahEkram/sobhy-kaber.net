@@ -1,724 +1,358 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم صبحي كابر - أصل المشويات والطواجن المصرية</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Cairo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مطعم وجزارة صبحي كابر - الصفحة الرسمية</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #0d0d0d;
+      color: #f3f4f6;
+    }
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        gold: {
-                            400: '#facc15',
-                            500: '#eab308',
-                            600: '#ca8a04',
-                            700: '#a16207',
-                        },
-                        amber: {
-                            800: '#92400e',
-                            900: '#78350f',
-                        },
-                        darkBg: '#0f0d0b',
-                        cardBg: '#1a1714',
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #0f0d0b;
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
-        
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #fef08a 0%, #eab308 50%, #ca8a04 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .gold-gradient-bg {
-            background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
-        }
+    /* ضمان عرض أرقام الهواتف بشكل صحيح بالترتيب العربي/اللاتيني بدون انعكاس */
+    .phone-number {
+      direction: ltr !important;
+      display: inline-block;
+      unicode-bidi: isolate;
+    }
 
-        .gold-border {
-            border-color: #ca8a04;
-        }
+    .gold-gradient {
+      background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa7c11 100%);
+    }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #0f0d0b;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #ca8a04;
-            border-radius: 3px;
-        }
-        
-        .glow-effect {
-            box-shadow: 0 0 25px rgba(234, 179, 8, 0.25);
-        }
-        
-        .badge-pulse {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
+    .gold-text {
+      background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa7c11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: .6; }
-        }
-    </style>
+    .card-bg {
+      background: #171717;
+      border: 1px solid #262626;
+    }
+  </style>
 </head>
-<body class="custom-scrollbar">
+<body class="bg-neutral-950 text-neutral-100 min-h-screen">
 
-    <!-- Navbar Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/85 backdrop-blur-md border-b border-gold-600/30 transition-all duration-300" id="mainHeader">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-12 h-12 rounded-full gold-gradient-bg flex items-center justify-center text-black font-black text-2xl shadow-lg transform group-hover:scale-105 transition-all">
-                        ص
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-2xl font-black tracking-wider text-white group-hover:text-gold-400 transition">صبحي كابر</span>
-                        <span class="text-xs text-gold-500 font-bold tracking-widest">أصل المشويات والجزارة</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Nav Navigation -->
-                <nav class="hidden md:flex items-center space-x-1 space-x-reverse font-semibold">
-                    <a href="#hero" class="px-4 py-2 text-white hover:text-gold-400 transition hover:bg-white/5 rounded-lg">الرئيسية</a>
-                    <a href="#offers" class="px-4 py-2 text-gold-400 hover:text-gold-300 transition hover:bg-white/5 rounded-lg">🔥 أقوى العروض</a>
-                    <a href="#about" class="px-4 py-2 text-white hover:text-gold-400 transition hover:bg-white/5 rounded-lg">عن المطعم</a>
-                    <a href="#menu" class="px-4 py-2 text-white hover:text-gold-400 transition hover:bg-white/5 rounded-lg">قائمة الطعام</a>
-                    <a href="#reviews" class="px-4 py-2 text-white hover:text-gold-400 transition hover:bg-white/5 rounded-lg">المراجعات</a>
-                    <a href="#location" class="px-4 py-2 text-white hover:text-gold-400 transition hover:bg-white/5 rounded-lg">الفروع والعنوان</a>
-                </nav>
-
-                <!-- Action Buttons -->
-                <div class="hidden lg:flex items-center gap-3">
-                    <a href="tel:01097435010" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold border border-white/20 transition" dir="ltr">
-                        <i class="fa-solid fa-phone text-gold-400"></i>
-                        <span>01097435010</span>
-                    </a>
-                    <button onclick="openOrderModal()" class="gold-gradient-bg hover:opacity-90 text-black font-extrabold px-5 py-2.5 rounded-xl shadow-lg transform hover:-translate-y-0.5 transition active:scale-95 flex items-center gap-2">
-                        <i class="fa-solid fa-utensils"></i>
-                        <span>اطلب الآن</span>
-                    </button>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center gap-2">
-                    <button onclick="openOrderModal()" class="gold-gradient-bg text-black px-3 py-1.5 rounded-lg text-xs font-bold">
-                        طلب سريع
-                    </button>
-                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white p-2 rounded-lg focus:outline-none">
-                        <i class="fa-solid fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
+  <!-- Header / Navigation Bar -->
+  <header class="sticky top-0 z-50 bg-neutral-900/95 backdrop-blur-md border-b border-neutral-800 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 shrink-0">
+        <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center font-black text-neutral-950 text-xl shadow-lg">
+          ص
         </div>
-
-        <!-- Mobile Menu Drawer -->
-        <div id="mobileMenu" class="hidden md:hidden bg-cardBg border-b border-gold-600/30 px-4 pt-2 pb-6 space-y-2">
-            <a href="#hero" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/5">الرئيسية</a>
-            <a href="#offers" class="block px-3 py-2 rounded-md text-base font-medium text-gold-400 hover:bg-white/5">🔥 أقوى العروض</a>
-            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/5">عن المطعم</a>
-            <a href="#menu" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/5">قائمة الطعام</a>
-            <a href="#reviews" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/5">المراجعات</a>
-            <a href="#location" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-white/5">الموقع والتواصل</a>
-            <div class="pt-4 flex flex-col gap-2">
-                <a href="tel:01097435010" class="w-full text-center py-2.5 rounded-xl bg-white/10 text-white font-bold border border-white/20" dir="ltr">
-                    <i class="fa-solid fa-phone text-gold-400 ml-2"></i> 01097435010
-                </a>
-            </div>
+        <div>
+          <h1 class="text-xl font-black tracking-wide gold-text">صبحي كابر</h1>
+          <p class="text-xs text-neutral-400 font-bold">أصل المشويات والطواجن</p>
         </div>
-    </header>
+      </a>
 
-    <!-- Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1920')] bg-cover bg-center opacity-25"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-darkBg via-darkBg/80 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-darkBg via-transparent to-darkBg"></div>
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-neutral-300">
+        <a href="#offers" class="hover:text-amber-400 transition-colors py-2 px-1">العروض الجديدة</a>
+        <a href="#menu" class="hover:text-amber-400 transition-colors py-2 px-1">قائمة الطعام</a>
+        <a href="#butchery" class="hover:text-amber-400 transition-colors py-2 px-1">جزارة الأكابر</a>
+        <a href="#reviews" class="hover:text-amber-400 transition-colors py-2 px-1">المراجعات</a>
+        <a href="#location" class="hover:text-amber-400 transition-colors py-2 px-1">الفروع والعنوان</a>
+      </nav>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 my-auto">
-            
-            <div class="inline-flex items-center gap-3 bg-black/60 border border-gold-500/40 rounded-full px-5 py-2 mb-6 backdrop-blur-md hover:border-gold-400 transition cursor-pointer" onclick="scrollToReviews()">
-                <div class="flex items-center text-gold-400 text-sm gap-1">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star-half-stroke"></i>
-                </div>
-                <span class="font-bold text-white text-sm">٤٫٣</span>
-                <span class="text-xs text-gray-400 border-r border-gray-700 pr-3">(٨٠,٤ ألف مراجعة Google)</span>
-            </div>
-
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
-                أهلاً بحضرتك.. سعداء بتواصلك معانا <br>
-                <span class="gold-gradient-text">مطعم وجزارة صبحي كابر</span>
-            </h1>
-
-            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-gray-300 font-light mb-8 leading-relaxed">
-                استمتع بأقوى العروض الحصرية وأجود أنواع المشويات والطواجن الطازجة يومياً.
-            </p>
-
-            <!-- External Menu Button Banner -->
-            <div class="mb-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://wikilist.vip/menu/elakaber/" target="_blank" class="bg-amber-900/60 hover:bg-amber-800/80 text-gold-400 font-bold px-6 py-3 rounded-2xl border border-gold-500/50 flex items-center gap-2 backdrop-blur-md transition transform hover:scale-105">
-                    <i class="fa-solid fa-book-open-reader text-xl"></i>
-                    <span>تصفح المنيو الكامل (مطعم وجزارة) عبر الرابط</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                </a>
-            </div>
-
-            <!-- Action Buttons Hero -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-                <a href="#offers" class="w-full sm:w-auto gold-gradient-bg text-black font-black text-lg px-8 py-4 rounded-2xl shadow-xl hover:scale-105 transition duration-300 flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-fire"></i>
-                    <span>استعرض أحدث العروض</span>
-                </a>
-                <a href="tel:01097435010" class="w-full sm:w-auto bg-cardBg/80 hover:bg-cardBg text-white font-bold text-lg px-8 py-4 rounded-2xl border border-gold-500/50 hover:border-gold-400 transition duration-300 flex items-center justify-center gap-3 backdrop-blur-md">
-                    <i class="fa-solid fa-phone text-gold-400"></i>
-                    <span>اتصل الآن: <span dir="ltr">01097435010</span></span>
-                </a>
-            </div>
-
-            <!-- Key Features Chips -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-sm text-gray-300">
-                <div class="p-4 rounded-xl bg-cardBg/60 border border-white/5 backdrop-blur-sm flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-fire text-gold-400 text-xl"></i>
-                    <span>مشويات طازجة يومياً</span>
-                </div>
-                <div class="p-4 rounded-xl bg-cardBg/60 border border-white/5 backdrop-blur-sm flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-drumstick-bite text-gold-400 text-xl"></i>
-                    <span>جزارة بلدي 100%</span>
-                </div>
-                <div class="p-4 rounded-xl bg-cardBg/60 border border-white/5 backdrop-blur-sm flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-motorcycle text-gold-400 text-xl"></i>
-                    <span>توصيل سريع</span>
-                </div>
-                <div class="p-4 rounded-xl bg-cardBg/60 border border-white/5 backdrop-blur-sm flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-clock text-gold-400 text-xl"></i>
-                    <span>مفتوح حتى ٥ صباحاً</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SPECIAL OFFERS SECTION (جديد) -->
-    <section id="offers" class="py-20 bg-gradient-to-b from-darkBg via-amber-950/20 to-darkBg relative border-y border-gold-500/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="bg-gold-500/20 text-gold-400 text-xs font-black px-4 py-1.5 rounded-full border border-gold-500/30 uppercase tracking-widest">
-                    🔥 عروض مميزة
-                </span>
-                <h2 class="text-3xl sm:text-5xl font-black text-white mt-3 mb-4">باقات وعروض الأكابر</h2>
-                <p class="text-gray-300 text-base">اختر وجبتك المفضلة والمجهزة بأعلى جودة وطعم أصيل</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- عرض نعنشة -->
-                <div class="bg-cardBg rounded-3xl p-6 border border-gold-500/30 hover:border-gold-400 transition duration-300 flex flex-col justify-between relative overflow-hidden group shadow-xl">
-                    <div class="absolute -left-12 -top-12 w-28 h-28 bg-gold-500/10 rounded-full blur-xl group-hover:bg-gold-500/20 transition"></div>
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-black text-gold-400">✨ عرض نعنشة</h3>
-                            <span class="text-2xl font-black text-white bg-black/60 px-4 py-1 rounded-xl border border-gold-500/30">400 E£</span>
-                        </div>
-                        <ul class="space-y-3 text-gray-200 text-sm mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> جوز حمام محشي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> أرز بالخلطة</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> بطاطس مقرمشة</li>
-                        </ul>
-                    </div>
-                    <button onclick="addToCart('عرض نعنشة', 400)" class="w-full gold-gradient-bg text-black font-extrabold py-3 rounded-xl hover:opacity-90 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>طلب العرض</span>
-                    </button>
-                </div>
-
-                <!-- عرض فرفشة -->
-                <div class="bg-cardBg rounded-3xl p-6 border border-gold-500/30 hover:border-gold-400 transition duration-300 flex flex-col justify-between relative overflow-hidden group shadow-xl">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-black text-gold-400">✨ عرض فرفشة</h3>
-                            <span class="text-2xl font-black text-white bg-black/60 px-4 py-1 rounded-xl border border-gold-500/30">400 E£</span>
-                        </div>
-                        <ul class="space-y-3 text-gray-200 text-sm mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> حمامة محشية</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> ثمن كفتة بلدي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> سيخ شيش طاووق</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> أرز + بطاطس</li>
-                        </ul>
-                    </div>
-                    <button onclick="addToCart('عرض فرفشة', 400)" class="w-full gold-gradient-bg text-black font-extrabold py-3 rounded-xl hover:opacity-90 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>طلب العرض</span>
-                    </button>
-                </div>
-
-                <!-- عرض دندشة -->
-                <div class="bg-cardBg rounded-3xl p-6 border border-gold-500/30 hover:border-gold-400 transition duration-300 flex flex-col justify-between relative overflow-hidden group shadow-xl">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-black text-gold-400">✨ عرض دندشة</h3>
-                            <span class="text-2xl font-black text-white bg-black/60 px-4 py-1 rounded-xl border border-gold-500/30">400 E£</span>
-                        </div>
-                        <ul class="space-y-3 text-gray-200 text-sm mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> حمامة محشية</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> ثمن كفتة بلدي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> قطعة إستيك مشوي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> أرز + بطاطس</li>
-                        </ul>
-                    </div>
-                    <button onclick="addToCart('عرض دندشة', 400)" class="w-full gold-gradient-bg text-black font-extrabold py-3 rounded-xl hover:opacity-90 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>طلب العرض</span>
-                    </button>
-                </div>
-
-                <!-- تورتة الأكابر -->
-                <div class="bg-cardBg rounded-3xl p-6 border-2 border-gold-500 hover:border-gold-400 transition duration-300 flex flex-col justify-between relative overflow-hidden group shadow-2xl lg:col-span-3">
-                    <div class="absolute top-0 left-0 bg-red-600 text-white font-black text-xs px-4 py-1 rounded-br-xl uppercase">عرض العائلات والولائم👑</div>
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center">
-                        <div>
-                            <h3 class="text-3xl font-black gold-gradient-text mb-2">🎂 تورتة الأكابر</h3>
-                            <p class="text-gray-400 text-sm mb-4">تشكيلة الملوك الفاخرة لجميع أنواع المشويات البلدي الممتازة</p>
-                            <span class="text-3xl font-black text-gold-400 bg-black/70 px-6 py-2 rounded-2xl border border-gold-500/40 inline-block">1500 E£</span>
-                        </div>
-                        <div class="lg:col-span-2">
-                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-gray-200 text-sm">
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> ربع ريش</span>
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> ربع كباب</span>
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> ربع إستيك</span>
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> ربع نيفة</span>
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> ربع كفتة</span>
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> ربع طرب</span>
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> بطاطس + عيش</span>
-                                <span class="bg-darkBg p-2.5 rounded-xl border border-white/5"><i class="fa-solid fa-check text-gold-400 ml-1"></i> سلطات متنوعة</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button onclick="addToCart('تورتة الأكابر', 1500)" class="w-full mt-6 gold-gradient-bg text-black font-extrabold py-3.5 rounded-xl hover:opacity-90 transition flex items-center justify-center gap-2 text-lg">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>طلب تورتة الأكابر الآن</span>
-                    </button>
-                </div>
-
-                <!-- عرض تكاتي -->
-                <div class="bg-cardBg rounded-3xl p-6 border border-gold-500/30 hover:border-gold-400 transition duration-300 flex flex-col justify-between shadow-xl">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-black text-gold-400">✨ عرض تكاتي</h3>
-                            <span class="text-2xl font-black text-white bg-black/60 px-4 py-1 rounded-xl border border-gold-500/30">285 E£</span>
-                        </div>
-                        <ul class="space-y-3 text-gray-200 text-sm mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> نص فرخة مشوية</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> ثمن كفتة بلدي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> رز بسمتي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> سلطة طازجة</li>
-                        </ul>
-                    </div>
-                    <button onclick="addToCart('عرض تكاتي', 285)" class="w-full gold-gradient-bg text-black font-extrabold py-3 rounded-xl hover:opacity-90 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>طلب العرض</span>
-                    </button>
-                </div>
-
-                <!-- عرض ميكساتي -->
-                <div class="bg-cardBg rounded-3xl p-6 border border-gold-500/30 hover:border-gold-400 transition duration-300 flex flex-col justify-between shadow-xl">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-black text-gold-400">✨ عرض ميكساتي</h3>
-                            <span class="text-2xl font-black text-white bg-black/60 px-4 py-1 rounded-xl border border-gold-500/30">340 E£</span>
-                        </div>
-                        <ul class="space-y-3 text-gray-200 text-sm mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> مشكل مشويات (قطعة ريش + كباب + كفتة + طرب + استيك)</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> بطاطس + رز بسمتي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> سلطة طازجة</li>
-                        </ul>
-                    </div>
-                    <button onclick="addToCart('عرض ميكساتي', 340)" class="w-full gold-gradient-bg text-black font-extrabold py-3 rounded-xl hover:opacity-90 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>طلب العرض</span>
-                    </button>
-                </div>
-
-                <!-- عرض حركاتي -->
-                <div class="bg-cardBg rounded-3xl p-6 border border-gold-500/30 hover:border-gold-400 transition duration-300 flex flex-col justify-between shadow-xl">
-                    <div>
-                        <div class="flex items-center justify-between mb-4">
-                            <h3 class="text-2xl font-black text-gold-400">✨ عرض حركاتي</h3>
-                            <span class="text-2xl font-black text-white bg-black/60 px-4 py-1 rounded-xl border border-gold-500/30">390 E£</span>
-                        </div>
-                        <ul class="space-y-3 text-gray-200 text-sm mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> حمامة محشية</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> ثمن كفتة بلدي</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> ربع فرخة مشوية</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold-500"></i> بطاطس + رز بسمتي + سلطة</li>
-                        </ul>
-                    </div>
-                    <button onclick="addToCart('عرض حركاتي', 390)" class="w-full gold-gradient-bg text-black font-extrabold py-3 rounded-xl hover:opacity-90 transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-cart-plus"></i>
-                        <span>طلب العرض</span>
-                    </button>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 relative bg-darkBg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                
-                <!-- Text Info -->
-                <div class="space-y-6">
-                    <div class="inline-block px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-sm font-bold">
-                        حكاية أسطورة المشويات والجزارة
-                    </div>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
-                        أجود أنواع اللحوم الطازجة <br>
-                        <span class="gold-gradient-text">من المزرعة والجزارة إلى مائدتك</span>
-                    </h2>
-                    <p class="text-gray-300 leading-relaxed text-lg">
-                        بدأت حكاية صبحي كابر بوجبات بأسلوب بسيط وشغف لا ينتهي بتقديم أجود أنواع المشويات والطواجن المصرية. اليوم يمثل المطعم والجزارة معلماً رئيسياً يقصده الزوار للاستمتاع بالطعم الأصيل والخدمة الفاخرة.
-                    </p>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                        <div class="flex items-start gap-3 p-3 rounded-xl bg-cardBg border border-white/5">
-                            <i class="fa-solid fa-drumstick-bite text-gold-500 text-xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-white">لحوم بلدية 100%</h4>
-                                <p class="text-xs text-gray-400">نختار اللحوم بعناية فائقة وضمان الجودة</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3 p-3 rounded-xl bg-cardBg border border-white/5">
-                            <i class="fa-solid fa-bowl-food text-gold-500 text-xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold text-white">الشهقة المصرية الأصيلة</h4>
-                                <p class="text-xs text-gray-400">الملوخية بخلطة كابر الخاصة السحرية</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Gallery Grid -->
-                <div class="grid grid-cols-2 gap-4 relative">
-                    <div class="space-y-4">
-                        <div class="overflow-hidden rounded-2xl border border-gold-500/30 shadow-2xl group">
-                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800" alt="مشويات صبحي كابر" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
-                        </div>
-                    </div>
-                    <div class="space-y-4 pt-8">
-                        <div class="overflow-hidden rounded-2xl border border-gold-500/30 shadow-2xl group">
-                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800" alt="طواجن صبحي كابر" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Menu Section -->
-    <section id="menu" class="py-20 bg-cardBg/50 relative border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-gold-500 text-sm font-extrabold tracking-widest uppercase">الأطباق المتميزة</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2 mb-4">قائمة طعام صبحي كابر</h2>
-                <p class="text-gray-400">تذوق أشهى المأكولات المصرية والمشويات المحضرة على الفحم بأسلوبنا الخاص</p>
-                <div class="mt-4">
-                    <a href="https://wikilist.vip/menu/elakaber/" target="_blank" class="inline-flex items-center gap-2 text-gold-400 font-bold hover:underline">
-                        <span>اضغط هنا لعرض المنيو التفاعلي الكامل للمطعم والجزارة</span>
-                        <i class="fa-solid fa-external-link"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Menu Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menuGrid">
-                
-                <!-- Item 1: ملوخية -->
-                <div class="menu-card category-soups bg-darkBg rounded-2xl border border-white/10 overflow-hidden group hover:border-gold-500/50 transition duration-300">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?q=80&w=600" alt="الملوخية" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-black px-3 py-1 rounded-full badge-pulse">رائج🔥</span>
-                        <span class="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md text-gold-400 font-extrabold px-3 py-1 rounded-lg text-sm">١٢٠ E£</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white group-hover:text-gold-400 transition mb-2">الملوخية المصرية بالطشة</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">ملوخية خضراء طازجة تقدم بالشهقة الشهيرة وطشة الثوم والكزبرة المميزة</p>
-                        <div class="flex items-center justify-between pt-2 border-t border-white/5">
-                            <button onclick="addToCart('الملوخية المصرية بالطشة', 120)" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">
-                                <span>إضافة للطلب</span>
-                                <i class="fa-solid fa-plus-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 2: طاجن عكاوي -->
-                <div class="menu-card category-tajin bg-darkBg rounded-2xl border border-white/10 overflow-hidden group hover:border-gold-500/50 transition duration-300">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600" alt="طاجن عكاوى" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 right-3 bg-red-600 text-white text-xs font-black px-3 py-1 rounded-full badge-pulse">رائج🔥</span>
-                        <span class="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md text-gold-400 font-extrabold px-3 py-1 rounded-lg text-sm">٣٩٠ E£</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white group-hover:text-gold-400 transition mb-2">طاجن عكاوى بالبصل</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">قطع العكاوي المطهوة بعناية في الطاجن الفخاري مع البصل المكرمل والتوابل</p>
-                        <div class="flex items-center justify-between pt-2 border-t border-white/5">
-                            <button onclick="addToCart('طاجن عكاوى بالبصل', 390)" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">
-                                <span>إضافة للطلب</span>
-                                <i class="fa-solid fa-plus-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Item 3: موزة ضاني -->
-                <div class="menu-card category-grill category-tajin bg-darkBg rounded-2xl border border-white/10 overflow-hidden group hover:border-gold-500/50 transition duration-300">
-                    <div class="relative h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=600" alt="موزه ضاني" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute bottom-3 left-3 bg-black/80 backdrop-blur-md text-gold-400 font-extrabold px-3 py-1 rounded-lg text-sm">٤٨٠ E£</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-white group-hover:text-gold-400 transition mb-2">موزة ضاني بالأرز المعمر</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">موزة ضاني طرية ناضجة نضج تام تقدم فوق طاجن الأرز المعمر بالسمن البلدي</p>
-                        <div class="flex items-center justify-between pt-2 border-t border-white/5">
-                            <button onclick="addToCart('موزة ضاني بالأرز', 480)" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">
-                                <span>إضافة للطلب</span>
-                                <i class="fa-solid fa-plus-circle"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Location & Opening Hours Section -->
-    <section id="location" class="py-20 bg-darkBg relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-gold-500 text-sm font-extrabold tracking-widest uppercase">تفضل بزيارتنا</span>
-                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">الموقع والتواصل المباشر</h2>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                
-                <!-- Info & Hours -->
-                <div class="space-y-6">
-                    
-                    <div class="bg-cardBg p-6 rounded-2xl border border-gold-500/30 flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black font-black text-xl flex-shrink-0">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-1">عنوان المطعم والجزارة</h3>
-                            <p class="text-gray-300 text-sm leading-relaxed mb-3">
-                                151 عبيد، الساحل، روض الفرج، محافظة القاهرة
-                            </p>
-                            <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 text-gold-400 hover:text-gold-300 text-sm font-bold">
-                                <span>افتح الموقع في خرائط Google</span>
-                                <i class="fa-solid fa-arrow-left"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="bg-cardBg p-6 rounded-2xl border border-white/10 space-y-4">
-                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-phone text-gold-400 text-xl"></i>
-                                <span class="font-bold text-white">رقم الهاتف للطلبات:</span>
-                            </div>
-                            <a href="tel:01097435010" class="text-xl font-black text-gold-400" dir="ltr">01097435010</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Phone Banner Box -->
-                <div class="bg-cardBg rounded-3xl border border-white/10 overflow-hidden relative h-[350px] flex flex-col justify-center p-8 text-center bg-[url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=800')] bg-cover bg-center">
-                    <div class="absolute inset-0 bg-darkBg/85 backdrop-blur-sm"></div>
-                    
-                    <div class="relative z-10 space-y-4">
-                        <span class="bg-gold-500 text-black text-xs font-black px-4 py-1.5 rounded-full uppercase">خدمة التوصيل والحجز</span>
-                        <h3 class="text-3xl font-black text-white">مطعم وجزارة صبحي كابر</h3>
-                        <p class="text-gold-400 text-2xl font-black" dir="ltr">01097435010</p>
-                        
-                        <a href="tel:01097435010" class="w-full gold-gradient-bg text-black font-extrabold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2 hover:opacity-90 transition max-w-sm mx-auto">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>اتصل بنا الآن</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Order Modal -->
-    <div id="orderModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="bg-cardBg rounded-3xl border border-gold-500/40 w-full max-w-lg p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
-            
-            <button onclick="closeOrderModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white text-2xl">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 rounded-full gold-gradient-bg flex items-center justify-center text-black font-black text-2xl mx-auto mb-2">
-                    ص
-                </div>
-                <h3 class="text-2xl font-black text-white" id="modalTitle">تأكيد الطلب</h3>
-                <p class="text-xs text-gray-400 mt-1">مطعم وجزارة صبحي كابر</p>
-            </div>
-
-            <!-- Cart Summary Preview -->
-            <div id="cartSummary" class="bg-darkBg p-4 rounded-xl border border-white/10 mb-6 hidden">
-                <h4 class="font-bold text-gold-400 text-sm mb-2">الوجبات والعروض المختارة:</h4>
-                <ul id="cartItemsList" class="text-xs text-gray-300 space-y-1 mb-2"></ul>
-                <div class="border-t border-white/10 pt-2 flex justify-between font-bold text-white text-sm">
-                    <span>الإجمالي التقديري:</span>
-                    <span id="cartTotal" class="text-gold-400">0 E£</span>
-                </div>
-            </div>
-
-            <form id="orderForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-right">
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">الاسم بالكامل</label>
-                    <input type="text" required placeholder="أدخل اسمك" class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">رقم الهاتف (واتساب)</label>
-                    <input type="tel" required placeholder="01097435010" class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500 text-right">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">العنوان أو ملاحظات الطلب</label>
-                    <textarea rows="2" placeholder="اكتب عنوانك بالتفصيل..." class="w-full bg-darkBg border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold-500"></textarea>
-                </div>
-
-                <button type="submit" class="w-full gold-gradient-bg text-black font-extrabold py-3.5 rounded-xl shadow-lg hover:opacity-90 transition mt-2">
-                    تأكيد الطلب الآن
-                </button>
-            </form>
-
-        </div>
-    </div>
-
-    <!-- Mobile Fixed Call / Action Bar -->
-    <div class="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-lg border-t border-gold-500/40 p-3 z-40 lg:hidden flex items-center justify-between gap-3">
-        <a href="tel:01097435010" class="flex-1 bg-white/10 text-white text-center py-2.5 rounded-xl font-bold text-sm border border-white/20 flex items-center justify-center gap-2" dir="ltr">
-            <i class="fa-solid fa-phone text-gold-400"></i>
-            <span>01097435010</span>
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="tel:0221288990" class="hidden sm:flex items-center gap-2 bg-neutral-800 hover:bg-neutral-700 text-amber-400 font-bold px-4 py-2.5 rounded-xl border border-neutral-700 transition">
+          <i class="fa-solid fa-phone text-xs"></i>
+          <span class="phone-number">02 21288990</span>
         </a>
-        <button onclick="openOrderModal()" class="flex-1 gold-gradient-bg text-black text-center py-2.5 rounded-xl font-extrabold text-sm shadow-lg flex items-center justify-center gap-2">
-            <i class="fa-solid fa-bag-shopping"></i>
-            <span>طلب أونلاين</span>
-        </button>
+        <a href="https://wikilist.vip/menu/elakaber/" target="_blank" class="gold-gradient hover:opacity-90 text-neutral-950 font-extrabold px-5 py-2.5 rounded-xl shadow-lg transition flex items-center gap-2 text-sm">
+          <i class="fa-solid fa-utensils"></i>
+          <span>المنيوهات الرسمية</span>
+        </a>
+      </div>
+
     </div>
+  </header>
 
-    <script>
-        let cart = [];
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-b from-neutral-900 via-neutral-950 to-neutral-950 border-b border-neutral-800 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold text-sm mb-6">
+        #يابركة_دعائك_يا_امي
+      </span>
+      <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+        طعم المشويات على أصوله <br>
+        <span class="gold-text">في مطعم وجزارة صبحي كابر</span>
+      </h1>
+      <p class="text-neutral-400 text-lg md:text-xl max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+        أشهر مطعم مشويات وطواجن في مصر. أشهى أطباق الملوخية، الكباب، الكفتة، والطواجن المسبكة بإتقان وصنع بحب.
+      </p>
 
-        function addToCart(itemName, price) {
-            cart.push({ name: itemName, price: price });
-            updateCartUI();
-            openOrderModal('cart');
-        }
+      <!-- Main Buttons -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="tel:01097435010" class="gold-gradient text-neutral-950 font-black px-8 py-4 rounded-xl text-lg shadow-xl hover:scale-105 transition flex items-center gap-3">
+          <i class="fa-solid fa-phone-volume text-xl"></i>
+          <span>اطلب الآن: <span class="phone-number">01097435010</span></span>
+        </a>
+        <a href="https://wikilist.vip/menu/elakaber/" target="_blank" class="bg-neutral-800 hover:bg-neutral-700 text-white font-bold px-8 py-4 rounded-xl text-lg border border-neutral-700 shadow-xl transition flex items-center gap-3">
+          <i class="fa-solid fa-book-open"></i>
+          <span>عرض المنيو والتفاصيل</span>
+        </a>
+      </div>
 
-        function updateCartUI() {
-            const summaryBox = document.getElementById('cartSummary');
-            const list = document.getElementById('cartItemsList');
-            const totalEl = document.getElementById('cartTotal');
+      <!-- Quick Info Bar -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+        <div class="card-bg p-4 rounded-xl text-center">
+          <div class="text-amber-400 text-2xl font-black mb-1">4.3 ★</div>
+          <div class="text-xs text-neutral-400 font-bold">(80.4 ألف تقييم)</div>
+        </div>
+        <div class="card-bg p-4 rounded-xl text-center">
+          <div class="text-amber-400 text-xl font-black mb-1">روض الفرج</div>
+          <div class="text-xs text-neutral-400 font-bold">151 شارع عبيد، الساحل</div>
+        </div>
+        <div class="card-bg p-4 rounded-xl text-center">
+          <div class="text-amber-400 text-xl font-black mb-1">مفتوح الآن</div>
+          <div class="text-xs text-neutral-400 font-bold">يغلق 5 ص | يعيد الفتح 12 م</div>
+        </div>
+        <div class="card-bg p-4 rounded-xl text-center">
+          <div class="text-amber-400 text-xl font-black mb-1">خدمة التوصيل</div>
+          <div class="text-xs text-neutral-400 font-bold">متوفر توصيل واستلام</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            if (cart.length > 0) {
-                summaryBox.classList.remove('hidden');
-                list.innerHTML = '';
-                let total = 0;
+  <!-- Offers Section -->
+  <section id="offers" class="py-20 bg-neutral-950 border-b border-neutral-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-black text-amber-400 mb-3">🔥 أحدث عروض الأكابر</h2>
+        <p class="text-neutral-400 font-bold text-lg">اختر العرض المناسب واستمتع بأقوى ميكسات المشويات والطواجن</p>
+      </div>
 
-                cart.forEach((item, index) => {
-                    total += item.price;
-                    const li = document.createElement('li');
-                    li.className = 'flex justify-between items-center py-1 border-b border-white/5';
-                    li.innerHTML = `
-                        <span>${item.name}</span>
-                        <div class="flex items-center gap-2">
-                            <span class="text-gold-400 font-bold">${item.price} E£</span>
-                            <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-trash text-xs"></i></button>
-                        </div>
-                    `;
-                    list.appendChild(li);
-                });
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Offer 1 -->
+        <div class="card-bg rounded-2xl p-6 relative flex flex-col justify-between hover:border-amber-500/50 transition border border-neutral-800 shadow-lg">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-black text-white">عرض نعنشة</h3>
+              <span class="bg-amber-500/10 text-amber-400 font-black px-3 py-1 rounded-lg text-lg border border-amber-500/20">400 ج.م</span>
+            </div>
+            <p class="text-neutral-300 font-semibold leading-relaxed mb-6">
+              جوز حمام محشي + أرز + بطاطس مقرمشة
+            </p>
+          </div>
+          <a href="tel:01097435010" class="w-full text-center bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 font-bold py-3 rounded-xl transition border border-neutral-700">طلب العرض</a>
+        </div>
 
-                totalEl.innerText = total + ' E£';
-            } else {
-                summaryBox.classList.add('hidden');
-            }
-        }
+        <!-- Offer 2 -->
+        <div class="card-bg rounded-2xl p-6 relative flex flex-col justify-between hover:border-amber-500/50 transition border border-neutral-800 shadow-lg">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-black text-white">عرض فرفشة</h3>
+              <span class="bg-amber-500/10 text-amber-400 font-black px-3 py-1 rounded-lg text-lg border border-amber-500/20">400 ج.م</span>
+            </div>
+            <p class="text-neutral-300 font-semibold leading-relaxed mb-6">
+              حمامة محشية + ثمن كفتة مشوية + سيخ شيش طاووق + أرز + بطاطس
+            </p>
+          </div>
+          <a href="tel:01097435010" class="w-full text-center bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 font-bold py-3 rounded-xl transition border border-neutral-700">طلب العرض</a>
+        </div>
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
+        <!-- Offer 3 -->
+        <div class="card-bg rounded-2xl p-6 relative flex flex-col justify-between hover:border-amber-500/50 transition border border-neutral-800 shadow-lg">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-black text-white">عرض دندشة</h3>
+              <span class="bg-amber-500/10 text-amber-400 font-black px-3 py-1 rounded-lg text-lg border border-amber-500/20">400 ج.م</span>
+            </div>
+            <p class="text-neutral-300 font-semibold leading-relaxed mb-6">
+              حمامة محشية + ثمن كفتة + قطعة إستيك مشوي + أرز + بطاطس
+            </p>
+          </div>
+          <a href="tel:01097435010" class="w-full text-center bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 font-bold py-3 rounded-xl transition border border-neutral-700">طلب العرض</a>
+        </div>
 
-        function openOrderModal(mode = 'normal') {
-            document.getElementById('orderModal').classList.remove('hidden');
-        }
+        <!-- Offer 4 VIP -->
+        <div class="card-bg rounded-2xl p-6 relative flex flex-col justify-between border-2 border-amber-500/60 shadow-2xl lg:col-span-3 bg-gradient-to-r from-neutral-900 via-neutral-900 to-amber-950/20">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+            <div>
+              <span class="inline-block px-3 py-1 bg-amber-500 text-neutral-950 font-black text-xs rounded-md mb-2">العرض الملوكي</span>
+              <h3 class="text-3xl font-black text-amber-400">تورتة الأكابر</h3>
+              <p class="text-neutral-300 font-semibold mt-2">
+                ربع ريش + ربع كباب + ربع إستيك + ربع نيفة + ربع كفتة + ربع طرب + بطاطس + عيش + سلطات متنوعة
+              </p>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-3xl font-black text-white block">1500 ج.م</span>
+              <a href="tel:01097435010" class="inline-block mt-3 gold-gradient text-neutral-950 font-black px-8 py-3 rounded-xl shadow-lg hover:scale-105 transition">طلب وجبة العائلة</a>
+            </div>
+          </div>
+        </div>
 
-        function closeOrderModal() {
-            document.getElementById('orderModal').classList.add('hidden');
-        }
+        <!-- Offer 5 -->
+        <div class="card-bg rounded-2xl p-6 relative flex flex-col justify-between hover:border-amber-500/50 transition border border-neutral-800 shadow-lg">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-black text-white">عرض تكاتي</h3>
+              <span class="bg-amber-500/10 text-amber-400 font-black px-3 py-1 rounded-lg text-lg border border-amber-500/20">285 ج.م</span>
+            </div>
+            <p class="text-neutral-300 font-semibold leading-relaxed mb-6">
+              نصف فرخة مشوية + ثمن كفتة + أرز بسمتي + سلطة
+            </p>
+          </div>
+          <a href="tel:01097435010" class="w-full text-center bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 font-bold py-3 rounded-xl transition border border-neutral-700">طلب العرض</a>
+        </div>
 
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            alert('تم استلام طلبك بنجاح! سيتم التواصل معك على الرقم للتأكيد.');
-            cart = [];
-            updateCartUI();
-            closeOrderModal();
-        }
+        <!-- Offer 6 -->
+        <div class="card-bg rounded-2xl p-6 relative flex flex-col justify-between hover:border-amber-500/50 transition border border-neutral-800 shadow-lg">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-black text-white">عرض ميكساتي</h3>
+              <span class="bg-amber-500/10 text-amber-400 font-black px-3 py-1 rounded-lg text-lg border border-amber-500/20">340 ج.م</span>
+            </div>
+            <p class="text-neutral-300 font-semibold leading-relaxed mb-6">
+              تشكيلة قطع (ريش + كباب + كفتة + طرب + إستيك) + بطاطس + أرز بسمتي + سلطة
+            </p>
+          </div>
+          <a href="tel:01097435010" class="w-full text-center bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 font-bold py-3 rounded-xl transition border border-neutral-700">طلب العرض</a>
+        </div>
 
-        function scrollToReviews() {
-            document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
-        }
+        <!-- Offer 7 -->
+        <div class="card-bg rounded-2xl p-6 relative flex flex-col justify-between hover:border-amber-500/50 transition border border-neutral-800 shadow-lg">
+          <div>
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-black text-white">عرض حركاتي</h3>
+              <span class="bg-amber-500/10 text-amber-400 font-black px-3 py-1 rounded-lg text-lg border border-amber-500/20">390 ج.م</span>
+            </div>
+            <p class="text-neutral-300 font-semibold leading-relaxed mb-6">
+              حمامة محشية + ثمن كفتة + ربع فرخة + بطاطس + أرز بسمتي + سلطة
+            </p>
+          </div>
+          <a href="tel:01097435010" class="w-full text-center bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 font-bold py-3 rounded-xl transition border border-neutral-700">طلب العرض</a>
+        </div>
 
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        });
-    </script>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location & Hours Section (Fixing the Layout & Spacing) -->
+  <section id="location" class="py-20 bg-neutral-900 border-b border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <span class="text-amber-400 font-bold text-sm tracking-widest block mb-2">تفضل بزيارتنا</span>
+        <h2 class="text-3xl md:text-5xl font-black text-white">الموقع وأوقات العمل</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+        
+        <!-- Left Column: Map & Direct Call -->
+        <div class="card-bg rounded-3xl p-8 border border-neutral-800 flex flex-col justify-between gap-8">
+          <div>
+            <span class="bg-amber-500/10 text-amber-400 font-extrabold px-4 py-2 rounded-xl text-sm border border-amber-500/20 inline-block mb-4">
+              فرع الساحل الرئيسي
+            </span>
+            <h3 class="text-3xl font-black text-white mb-2">روض الفرج - القاهرة</h3>
+            <p class="text-neutral-400 font-medium">شارع عبيد الرئيسي بالقرب من الكورنيش</p>
+          </div>
+
+          <div class="space-y-4 my-4">
+            <a href="tel:0221288990" class="w-full gold-gradient text-neutral-950 font-black py-4 px-6 rounded-2xl flex items-center justify-center gap-3 shadow-lg hover:opacity-90 transition text-lg">
+              <i class="fa-solid fa-phone text-xl"></i>
+              <span>اتصل الآن: <span class="phone-number">02 21288990</span></span>
+            </a>
+            
+            <a href="https://maps.google.com/?q=151+Obaid+St+Rod+El+Farag+Cairo" target="_blank" class="w-full bg-neutral-800 hover:bg-neutral-700 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 border border-neutral-700 transition text-lg">
+              <i class="fa-solid fa-location-dot text-amber-400 text-xl"></i>
+              <span>الاتجاهات عبر الخريطة</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Details & Schedule -->
+        <div class="space-y-6 flex flex-col justify-between">
+          
+          <!-- Address Card -->
+          <div class="card-bg rounded-2xl p-6 border border-neutral-800 flex items-start gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 text-amber-400 text-2xl">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-white mb-2">عنوان المطعم</h4>
+              <p class="text-neutral-300 font-semibold leading-relaxed mb-3">151 عبيد، الساحل، روض الفرج، محافظة القاهرة 4350021</p>
+              <a href="https://maps.google.com" target="_blank" class="text-amber-400 font-bold text-sm hover:underline flex items-center gap-2">
+                <span>افتح الموقع في خرائط Google</span>
+                <i class="fa-solid fa-arrow-left text-xs"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Working Hours Card -->
+          <div class="card-bg rounded-2xl p-6 border border-neutral-800 flex items-start gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 text-amber-400 text-2xl">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="w-full">
+              <div class="flex justify-between items-center mb-3">
+                <h4 class="text-xl font-bold text-white">حالة العمل الآن</h4>
+                <span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold px-3 py-1 rounded-lg text-xs">
+                  مفتوح الآن (يغلق 5 صباحاً)
+                </span>
+              </div>
+              <div class="space-y-2 text-sm text-neutral-300 font-semibold">
+                <div class="flex justify-between py-1 border-b border-neutral-800">
+                  <span>الفترة الأولى:</span>
+                  <span class="text-white font-bold">مفتوح حتى 05:00 صباحاً</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-neutral-800">
+                  <span>يعيد الفتح:</span>
+                  <span class="text-white font-bold">الساعة 12:00 ظهراً</span>
+                </div>
+                <div class="flex justify-between py-1">
+                  <span>متوسط مدة التواجد:</span>
+                  <span class="text-amber-400 font-bold">25 دقيقة إلى 4 ساعات</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Peak Hours Info -->
+          <div class="card-bg rounded-2xl p-6 border border-neutral-800 flex items-start gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center shrink-0 text-amber-400 text-2xl">
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold text-white mb-1">أوقات الذروة والانتظار</h4>
+              <p class="text-neutral-400 text-sm font-semibold leading-relaxed">
+                السبت والجمعة مساءً عادة مشغولة جداً - مدة انتظار تصل إلى 1 س و15 د.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 bg-neutral-950 text-neutral-500 text-center border-t border-neutral-900 text-sm font-semibold">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="mb-3">جميع الحقوق محفوظة © مطعم وجزارة صبحي كابر 2026</p>
+      <p class="text-xs text-neutral-600">طلب التوصيل والاستفسارات عبر الرقم الموحد: <span class="phone-number text-neutral-400">01097435010</span> / <span class="phone-number text-neutral-400">0221288990</span></p>
+    </div>
+  </footer>
+
 </body>
 </html>
